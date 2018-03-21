@@ -26,7 +26,41 @@ body
 
 .bg-mask
   @extend .container
-  background: url(../images/mask.png) center center
+  // background: url(../images/mask.png) center center
+
+.modal-wrapper
+  @extend .container
+  background-color: rgba(0,0,0,0.6)
+  z-index: 100
+  0.6219
+  300
+  .generate-modal
+    position: relative
+    width: 80%
+    height: 482.4px
+    margin-left: 10%
+    background-color: #fff
+    animation: opc 1s ease
+    img
+      width: 100%
+      height: 100%
+    .close-btn
+      display: block
+      position: absolute
+      width: 60px
+      height: 60px
+      overflow: hidden
+      border-radius: 50%
+      background-color: rgba(255,255,255,0.8)
+      color: rgba(0,0,0,0.6)
+      text-align: center
+      line-height: 70px
+      font-size: 80px
+      left: 50%
+      margin-left: -30px
+      margin-top: 20px
+.hide
+  display: none
 
 .loading, #content
   position: absolute
@@ -40,13 +74,20 @@ body
   position: absolute
   width: 100%
   height: 100%
-  background: linear-gradient(to top,#341839 0%,#a3a3a3 90%)
+  background-color: #a7d9e5
+  // background: linear-gradient(to top,#341839 0%,#a3a3a3 90%)
+  &.wind
+    background-color: #d9eab9
+  &.humidity
+    background-color: #fff4e1
+  &.rain
+    background-color: #e1d8ef
 
 .loadAnimate
   width: 224px
   height: 263px
   background-image: url(../images/loading.png)
-  animation: loading .5s steps(10) infinite
+  animation: loading .5s steps(24) infinite
   position: absolute
   top: 50%
   left: 50%
@@ -72,7 +113,9 @@ body
     z-index: 5
     animation: control-bottom 1s ease
     .control-bg, .control-play-btn
-      width: 100%
+      width: 80%
+      margin-left: 10%
+      margin-bottom: 20px
     .target-groups
       position: absolute
       top: 0px
@@ -200,19 +243,21 @@ body
     left: 58.04%
 
 .draggable_rain
-  background: rgba(242,204,74,0.8)  url(../images/rain.png) no-repeat center !important
+  background: rgba(90,219,154,0.8)  url(../images/rain.png) no-repeat center !important
   background-size: 60% 50% !important
 .draggable_humidity
-  background: rgba(88,218,152,0.8) url(../images/humidity.png) no-repeat center !important
+  background: rgba(243,204,75,0.8) url(../images/humidity.png) no-repeat center !important
   background-size: 60% 50% !important
 .draggable_wind
-  background: rgba(118,177,237,0.8) url(../images/wind.png) no-repeat center !important
+  background: rgba(192,181,215,0.8) url(../images/wind.png) no-repeat center !important
   background-size: 60% 50% !important
 
 .animation-header
   animation: header-bg 1s ease
   img
-    width: 100%
+    width: 80%
+    margin-left: 10%
+    margin-top: 20px
 .animation-box
   width: 640px
   height: 1029px
@@ -227,6 +272,8 @@ body
   animation: characterAnimate 1s steps(24) infinite
   transform: matrix(0.585938, 0, 0, 0.585938, 0, 0)
   margin-top: -460px
+.home-normal
+  background-image: url(../images/home_normal.png)
 .animation-normal
   background-image: url(../images/main_normal.png)
 .animation-draggable_rain
@@ -258,7 +305,7 @@ body
 
 @keyframes loading {
   100% { 
-    background-position: 0px  -2630px
+    background-position: 0px  -6312px
   }
 }
 

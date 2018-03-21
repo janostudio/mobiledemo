@@ -21,7 +21,7 @@ export default {
                 <div class="animation-header">
                   <img src="./statics/images/header_info.png"/>
                 </div>
-                <div class="animation-box animation-normal"></div>
+                <div class="animation-box home-normal"></div>
               </div>
               <div id="control">
                 <img id="control-play-btn" class="control-play-btn" src="./statics/images/control_play_btn.png"/>
@@ -64,7 +64,7 @@ export default {
                   </header>
                   <div id="window">
                     <div class="animation-header">
-                      <img src="./statics/images/header_info.png"/>
+                      <img src="./statics/images/header_generate_info.png"/>
                     </div>
                     <div class="animation-box animation-normal"></div>
                   </div>

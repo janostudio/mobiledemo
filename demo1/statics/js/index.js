@@ -69,7 +69,10 @@ function main_anime () {
   const groups_width = parseFloat(getComputedStyle(groups, 'width'))
   const animation_image = Array(8).fill('animation-normal')
   let start
-  const animationFrame = getAnimationFrame()  
+  const animationFrame = getAnimationFrame() 
+  const cancelAnimation = cancelAnimationFrame()
+  let animation
+  const content_bg = document.getElementById("content-bg") 
 
   /**
    * draggable with html5 origin API
@@ -146,10 +149,11 @@ function main_anime () {
     if (isRestart >= 8) {
       start = timestamp
     } else {
+      content_bg.className = animation_image[isRestart].split('_')[1] || ''
       anime_window.className = 'animation-box ' + animation_image[isRestart]
       animation_image[isRestart] !== 'animation-normal' && audio[animation_image[isRestart]].play()
     }
-    animationFrame(guideAnimation)
+    animation = animationFrame(guideAnimation)
   }
 
   function btn_class () {
@@ -184,6 +188,7 @@ function main_anime () {
       // generate Animate
       item.addEventListener('click', function () {
         if (item.className.indexOf('fail') < 0) {
+          cancelAnimation(animation)
           generate_page(animation_image)
         }
       }, false)
@@ -207,16 +212,23 @@ function generate_page (animation_image) {
   }
   const reload_page = document.getElementById("reload_page")
   const custome_btn = document.getElementById("custome_btn")
+  const content_bg = document.getElementById("content-bg")
+  const modal_wrapper = document.getElementById("modal_wrapper")
+  const close_btn = document.getElementById("close_btn")
 
   setTimeout(loop_animation, 1000)
   reload_page.addEventListener('click', function () {
     location.reload()
   }, false)
   custome_btn.addEventListener('click', function () {
-    // custome function
+    modal_wrapper.className = 'modal-wrapper'
+  }, false)
+  close_btn.addEventListener('click', function () {
+    modal_wrapper.className = 'modal-wrapper hide'
   }, false)
 
   function loop_animation () {
+    content_bg.className = animation_image[index].split('_')[1] || ''
     anime_window.className = 'animation-box ' + animation_image[index]
     animation_image[index] !== 'animation-normal' && audio[animation_image[index]].play()
     index === 7 ? index = 0 : index++
@@ -268,4 +280,13 @@ function getAnimationFrame () {
     function( callback ){  
       window.setTimeout(callback, 1000 / 60) 
     }
+}
+function cancelAnimationFrame () {
+  return window.cancelAnimationFrame || 
+    window.webkitCancelAnimationFrame ||  
+    window.mozCancelAnimationFrame    
+    // ||  
+    // function( callback ){
+    //   window.setTimeout(callback, 1000 / 60) 
+    // }
 }
