@@ -1,0 +1,51 @@
+{
+  "name": "mobiledemo",
+  "version": "1.0.0",
+  "description": "mobiledemo",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "demo1": "node demo1/app.js",
+    "demo1:build": "node demo1/build.js",
+    "demo12": "node demo1/app.gg2.js",
+    "demo2": "node demo2/app.js",
+    "demo2:build": "node demo2/build.js"
+  },
+  "author": "JanathonJiang <qinghuangniao@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "clean-webpack-plugin": "^0.1.18",
+    "connect-history-api-fallback": "^1.5.0",
+    "copy-webpack-plugin": "^4.4.1",
+    "css-hot-loader": "^1.3.6",
+    "css-loader": "^0.28.9",
+    "express": "^4.16.2",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.6",
+    "html-webpack-plugin": "^2.30.1",
+    "opn": "^5.2.0",
+    "optimize-css-assets-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.20.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.10.0",
+    "webpack-dev-middleware": "^2.0.4",
+    "webpack-hot-middleware": "^2.21.0",
+    "webpack-merge": "^4.1.1",
+    "webpack-spritesmith": "^0.4.0"
+  },
+  "dependencies": {
+    "dragula": "^3.7.2"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 9"
+  ]
+}
