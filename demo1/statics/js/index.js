@@ -10,8 +10,10 @@ if (module.hot) {
 (function () {
   // To prevent Scroll event in mobile.
   // document.querySelector('body').addEventListener('touchstart', function (event) {
-  //   event.preventDefault()
-  // })
+  //   if (event.target.className.indexOf('box') === -1) {
+  //     event.preventDefault()
+  //   }
+  // }, { passive: false })
 
   /**
    * to show animate page
@@ -73,6 +75,10 @@ function main_anime () {
   const cancelAnimation = cancelAnimationFrame()
   let animation
   const content_bg = document.getElementById("content-bg") 
+  const tutorial = document.querySelector(".tutorial")
+  setTimeout(function () {
+    tutorial.className = 'tutorial hide'
+  }, 4000)
 
   /**
    * draggable with html5 origin API
@@ -139,7 +145,7 @@ function main_anime () {
   function guideAnimation (timestamp) {
     if (!start) start = timestamp
     var progress = (timestamp - start) * groups_width / 8000
-    guide.style.transform = 'translateX(' + progress + 'px)'
+    guide.style.transform = 'translateX(' + (progress - 60) + 'px)'
     /**
      * groups_width / target_width = 8, and we except the total animation length is 8 seconds.
      * so we can indicate when progress = 8000 we should reset timestamp.
@@ -202,8 +208,10 @@ function main_anime () {
  * load generate_page
  */
 function generate_page (animation_image) {
-  content.innerHTML = data.generate_page
   let index = 0
+  const content_bg = document.getElementById("content-bg")
+  content.innerHTML = data.generate_page(animation_image[index++])
+  content_bg.className = animation_image[index].split('_')[1]
   const anime_window = document.querySelector('.animation-box')
   const audio = {
     'animation-draggable_rain': document.getElementById("sound1"),
@@ -212,7 +220,6 @@ function generate_page (animation_image) {
   }
   const reload_page = document.getElementById("reload_page")
   const custome_btn = document.getElementById("custome_btn")
-  const content_bg = document.getElementById("content-bg")
   const modal_wrapper = document.getElementById("modal_wrapper")
   const close_btn = document.getElementById("close_btn")
 

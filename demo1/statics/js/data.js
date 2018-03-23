@@ -15,12 +15,11 @@ export default {
   ],
   home_page: `
               <header id="header">
-                <img class="header-bg" src="./statics/images/header_bg.png">
-              </header>
-              <div id="window">
                 <div class="animation-header">
                   <img src="./statics/images/header_info.png"/>
                 </div>
+              </header>
+              <div id="window">
                 <div class="animation-box home-normal"></div>
               </div>
               <div id="control">
@@ -30,6 +29,9 @@ export default {
                       <header id="header">
                         <img class="header-bg" src="./statics/images/header_bg.png">
                       </header>
+                      <div class="tutorial">
+                        <div class="tutorial-finger"></div>
+                      </div>
                       <div id="window">
                         <div class="animation-box animation-normal"></div>
                       </div>
@@ -58,15 +60,15 @@ export default {
                           <img src="./statics/images/next_btn.png">
                         </div>
                       </div>`,
-  generate_page: `
+  generate_page: function (firstImg) {
+                return `
                   <header id="header">
-                    <img class="header-bg" src="./statics/images/header_bg.png">
-                  </header>
-                  <div id="window">
                     <div class="animation-header">
                       <img src="./statics/images/header_generate_info.png"/>
                     </div>
-                    <div class="animation-box animation-normal"></div>
+                  </header>
+                  <div id="window">
+                    <div class="animation-box ${firstImg}"></div>
                   </div>
                   <div id="control">
                     <img id="control-play-btn" class="control-play-btn" src="./statics/images/control_again_btn.png"/>
@@ -75,4 +77,5 @@ export default {
                       <div id="custome_btn"></div>
                     </div>
                   </div>`
+  }
 }
