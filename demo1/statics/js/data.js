@@ -1,17 +1,12 @@
 export default {
   host: process.env.NODE_ENV === 'production' ? '.' : 'http://127.0.0.1:8080',//'http://192.168.37.104:8080',
   imgs: [
-    '/statics/images/control_bg.png',
-    '/statics/images/draggable_humidity.png',
-    '/statics/images/draggable_rain.png',
-    '/statics/images/draggable_wind.png',
-    '/statics/images/header_bg.png',
-    '/statics/images/humidity.png',
+    '/statics/images/tutorial_bg.png',
+    '/statics/images/home_normal.png',
     '/statics/images/main_normal.png',
-    '/statics/images/next_btn.png',
-    '/statics/images/rain.png',
-    '/statics/images/rest_btn.png',
-    '/statics/images/wind.png',
+    '/statics/images/draggable_rain.png',
+    '/statics/images/draggable_humidity.png',
+    '/statics/images/draggable_wind.png'
   ],
   home_page: `
               <header id="header">

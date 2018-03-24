@@ -25,8 +25,16 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
-          limit: 10000
+          limit: 10000,
+          fallback: path.resolve('./lazy-url-loader/index.js')
         }
+        // use: [{
+        //   loader: path.resolve('./lazy-url-loader/index.js')},{
+        //   loader: 'url-loader',
+        //   options: {
+        //     limit: 10000
+        //   }
+        // }]
       },
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,

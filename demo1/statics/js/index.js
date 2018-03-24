@@ -9,11 +9,12 @@ if (module.hot) {
 
 (function () {
   // To prevent Scroll event in mobile.
-  // document.querySelector('body').addEventListener('touchstart', function (event) {
+  // document.querySelector('.box').addEventListener('touchstart', function (event) {
+  //   event.stopPropagation();
   //   if (event.target.className.indexOf('box') === -1) {
   //     event.preventDefault()
   //   }
-  // }, { passive: false })
+  // })
 
   /**
    * to show animate page
@@ -79,6 +80,12 @@ function main_anime () {
   setTimeout(function () {
     tutorial.className = 'tutorial hide'
   }, 4000)
+
+  boxes.forEach((item, index) => {
+    item.addEventListener('touchstart', function (event) {
+      event.stopPropagation();
+    })
+  })
 
   /**
    * draggable with html5 origin API
