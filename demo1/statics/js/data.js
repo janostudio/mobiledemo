@@ -1,5 +1,6 @@
 export default {
-  host: process.env.NODE_ENV === 'production' ? '.' : 'http://127.0.0.1:8080',//'http://192.168.37.104:8080',
+  // host: 'http://192.168.0.103:8080',
+  host: process.env.NODE_ENV === 'production' ? '.' : 'http://127.0.0.1:8080',
   imgs: [
     '/statics/images/tutorial_bg.png',
     '/statics/images/home_normal.png',
