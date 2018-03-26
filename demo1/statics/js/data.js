@@ -9,21 +9,24 @@ export default {
     '/statics/images/draggable_humidity.png',
     '/statics/images/draggable_wind.png'
   ],
-  home_page: `
+  home_page: function(){
+          return `
               <header id="header">
                 <div class="animation-header">
-                  <img src="./statics/images/header_info.png"/>
+                  <img src="${this.host}/statics/images/header_info.png"/>
                 </div>
               </header>
               <div id="window">
                 <div class="animation-box home-normal"></div>
               </div>
               <div id="control">
-                <img id="control-play-btn" class="control-play-btn" src="./statics/images/control_play_btn.png"/>
-              </div>`,
-  draggable_page: `
+                <img id="control-play-btn" class="control-play-btn" src="${this.host}/statics/images/control_play_btn.png"/>
+              </div>`
+  },
+  draggable_page: function(){
+              return `
                       <header id="header">
-                        <img class="header-bg" src="./statics/images/header_bg.png">
+                        <img class="header-bg" src="${this.host}/statics/images/header_bg.png">
                       </header>
                       <div class="tutorial">
                         <div class="tutorial-finger"></div>
@@ -32,7 +35,7 @@ export default {
                         <div class="animation-box animation-normal"></div>
                       </div>
                       <div id="control">
-                        <img class="control-bg" src="./statics/images/control_bg.png" alt="control_bg"/>
+                        <img class="control-bg" src="${this.host}/statics/images/control_bg.png" alt="control_bg"/>
                         <div id="dragger">
                           <div class="box dragger1 draggable_rain"></div>
                           <div class="box dragger2 draggable_humidity"></div>
@@ -50,12 +53,13 @@ export default {
                           <div id="target7" class="target"></div>
                         </div>
                         <div class="btn rest-btn fail">
-                          <img src="./statics/images/rest_btn.png">
+                          <img src="${this.host}/statics/images/rest_btn.png">
                         </div>
                         <div class="btn next-btn fail">
-                          <img src="./statics/images/next_btn.png">
+                          <img src="${this.host}/statics/images/next_btn.png">
                         </div>
-                      </div>`,
+                      </div>`
+  },
   generate_page: function (firstImg, firstTitle) {
                 return `
                   <header id="header">
@@ -67,7 +71,7 @@ export default {
                     <div class="animation-box ${firstImg}"></div>
                   </div>
                   <div id="control">
-                    <img id="control-play-btn" class="control-play-btn" src="./statics/images/control_again_btn.png"/>
+                    <img id="control-play-btn" class="control-play-btn" src="${this.host}/statics/images/control_again_btn.png"/>
                     <div class="generate_btn">
                       <div id="reload_page"></div>
                       <div id="custome_btn"></div>

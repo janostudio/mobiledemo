@@ -44,7 +44,7 @@ function render_draggable_page () {
  * home_page function
  */
 function home_anime () {
-  content.innerHTML = data.home_page
+  content.innerHTML = data.home_page()
   const control_play_btn = document.getElementById('control-play-btn')
   control_play_btn.addEventListener('click', main_anime, false)
 }
@@ -53,7 +53,7 @@ function home_anime () {
  * daggable_page function
  */
 function main_anime () {
-  content.innerHTML = data.draggable_page
+  content.innerHTML = data.draggable_page()
   const boxes = document.querySelectorAll('.box')
   const targets = document.querySelectorAll('.target')
   const guide = document.querySelector('.guide')
