@@ -1,6 +1,6 @@
 export default {
   // host: 'http://192.168.0.103:8080',
-  host: process.env.NODE_ENV === 'production' ? '.' : 'http://localhost:8200',
+  host: process.env.NODE_ENV === 'production' ? './' : 'http://localhost:8200',
   imgs: [
     '/statics/images/tutorial_bg.png',
     '/statics/images/home_normal.png',
