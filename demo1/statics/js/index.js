@@ -13,11 +13,11 @@ if (module.hot) {
     event.preventDefault()
   }, {passive: false})
 
+  // document.getElementById('container').append(data.general_module())
   /**
    * to show animate page
    */
-  render_draggable_page()
-
+  data.general_module(render_draggable_page)
 })()
 
 /**
@@ -27,7 +27,6 @@ function render_draggable_page () {
   const loading = document.querySelector('.loading')
   const content = document.getElementById('content')
   const bgm = document.getElementById('bgm')
-
   lazy_load(data.imgs, () => {
     loading.style.opacity = 0
     setTimeout(function(){
