@@ -213,9 +213,11 @@ function main_anime () {
  */
 function generate_page (animation_image) {
   let index = 0
+  const root_url = "./statics/images/"
   const content_bg = document.getElementById("content-bg")
-  content.innerHTML = data.generate_page(animation_image[index++])
+  content.innerHTML = data.generate_page(animation_image[index++], root_url + "title_.png")
   content_bg.className = animation_image[index].split('_')[1]
+  const title = document.getElementById("title")
   const anime_window = document.querySelector('.animation-box')
   const audio = {
     'animation-draggable_rain': document.getElementById("sound1"),
@@ -239,7 +241,9 @@ function generate_page (animation_image) {
   }, false)
 
   function loop_animation () {
-    content_bg.className = animation_image[index].split('_')[1] || ''
+    let animeType = animation_image[index].split('_')[1] || ''
+    title.src = root_url + "title_" + animeType +".png"
+    content_bg.className = animeType
     anime_window.className = 'animation-box ' + animation_image[index]
     animation_image[index] !== 'animation-normal' && audio[animation_image[index]].play()
     index === 7 ? index = 0 : index++

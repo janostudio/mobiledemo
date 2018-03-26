@@ -1,6 +1,6 @@
 export default {
   // host: 'http://192.168.0.103:8080',
-  host: process.env.NODE_ENV === 'production' ? '.' : 'http://127.0.0.1:8080',
+  host: process.env.NODE_ENV === 'production' ? '.' : 'http://localhost:8200',
   imgs: [
     '/statics/images/tutorial_bg.png',
     '/statics/images/home_normal.png',
@@ -56,11 +56,11 @@ export default {
                           <img src="./statics/images/next_btn.png">
                         </div>
                       </div>`,
-  generate_page: function (firstImg) {
+  generate_page: function (firstImg, firstTitle) {
                 return `
                   <header id="header">
                     <div class="animation-header">
-                      <img src="./statics/images/header_generate_info.png"/>
+                      <img id="title" src="${firstTitle}"/>
                     </div>
                   </header>
                   <div id="window">

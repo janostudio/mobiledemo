@@ -24,7 +24,7 @@ app.get('/', function(req, res, next){
     next();
 })
  
-app.listen(8080, function(e){
-    opn('http://localhost:8080')
-    console.log(`server start at 8080`);
+app.listen(8200, function(e){
+    opn('http://localhost:8200')
+    console.log(`server start at 8200`);
 });
