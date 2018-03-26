@@ -9,5 +9,5 @@ module.exports = function(content){
   // }
   const name = this.resourcePath.split('/').pop()
 
-  return `module.exports = "/statics/images/${name}";`
+  return `module.exports = "./statics/images/${name}";`
 }
