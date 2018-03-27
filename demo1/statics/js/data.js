@@ -14,6 +14,7 @@ export default {
     modal_wrapper.innerHTML = `
         <div class="generate-modal">
           <img src="${this.host}/statics/images/generate_modal.png" />
+          <a class="goXpro" href="http://xpro.91ctf.com"></a>
           <span id="close_btn" class="close-btn">X</span>
         </div>
         <audio id="sound1" preload="auto">
