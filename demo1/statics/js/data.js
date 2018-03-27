@@ -12,24 +12,22 @@ export default {
   general_module: function(callback){
     const modal_wrapper = document.getElementById('modal_wrapper');
     modal_wrapper.innerHTML = `
-        <section id="modal_wrapper" class="modal-wrapper hide">
-          <div class="generate-modal">
-            <img src="${this.host}/statics/images/generate_modal.png" />
-            <span id="close_btn" class="close-btn">X</span>
-          </div>
-          <audio id="sound1" preload="auto">
-            <source src="${this.host}/statics/audio/sound1.mp3" type="audio/mp3">
-          </audio>
-          <audio id="sound2" preload="auto">
-            <source src="${this.host}/statics/audio/sound2.mp3" type="audio/mp3">
-          </audio>
-          <audio id="sound3" preload="auto">
-            <source src="${this.host}/statics/audio/sound3.mp3" type="audio/mp3">
-          </audio>
-          <audio id="bgm" preload="auto" loop="loop">
-            <source src="${this.host}/statics/audio/bgm.mp3" type="audio/mp3">
-          </audio>
-        </section>
+        <div class="generate-modal">
+          <img src="${this.host}/statics/images/generate_modal.png" />
+          <span id="close_btn" class="close-btn">X</span>
+        </div>
+        <audio id="sound1" preload="auto">
+          <source src="${this.host}/statics/audio/sound1.mp3" type="audio/mp3">
+        </audio>
+        <audio id="sound2" preload="auto">
+          <source src="${this.host}/statics/audio/sound2.mp3" type="audio/mp3">
+        </audio>
+        <audio id="sound3" preload="auto">
+          <source src="${this.host}/statics/audio/sound3.mp3" type="audio/mp3">
+        </audio>
+        <audio id="bgm" preload="auto" loop="loop">
+          <source src="${this.host}/statics/audio/bgm.mp3" type="audio/mp3">
+        </audio>
     `;
     setTimeout(function(){callback()}, 0);
   },

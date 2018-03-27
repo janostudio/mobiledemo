@@ -13,7 +13,11 @@ if (module.hot) {
     event.preventDefault()
   }, {passive: false})
 
-  // document.getElementById('container').append(data.general_module())
+  // operate stylesheet, to adapt screen
+  const rate = document.body.clientWidth / 640
+  const sheet = document.styleSheets[0]
+  sheet.insertRule(`.animation-box { transform: matrix(${rate}, 0, 0, ${rate}, 0, 0);}`, sheet.cssRules.length)
+
   /**
    * to show animate page
    */
