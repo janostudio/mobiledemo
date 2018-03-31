@@ -6,7 +6,6 @@ if (module.hot) {
   module.hot.accept()
 }
 
-
 (function () {
   // To prevent Scroll event in mobile.
   document.body.addEventListener('touchmove', function (event) {
@@ -22,7 +21,7 @@ if (module.hot) {
    * to show animate page
    */
   data.general_module(render_draggable_page)
-})()
+})();
 
 /**
  * draggable_page
@@ -30,15 +29,15 @@ if (module.hot) {
 function render_draggable_page () {
   const loading = document.querySelector('.loading')
   const content = document.getElementById('content')
-  const bgm = document.getElementById('bgm')
+  // const bgm = document.getElementById('bgm')
   lazy_load(data.imgs, () => {
     loading.style.opacity = 0
     setTimeout(function(){
       /**
        * load home page
-       */
-      home_anime()
-      bgm.play()
+       */ 
+      audioPlay('bgm');
+      home_anime();
     }, 1000)
   })
 }
@@ -64,9 +63,9 @@ function main_anime () {
   const anime_window = document.querySelector('.animation-box')
   const btn = document.querySelectorAll('.btn')
   const audio = {
-    'animation-draggable_rain': document.getElementById("sound1"),
-    'animation-draggable_humidity': document.getElementById("sound2"),
-    'animation-draggable_wind': document.getElementById("sound3")
+    'animation-draggable_rain': "sound1",
+    'animation-draggable_humidity': "sound2",
+    'animation-draggable_wind': "sound3"
   }
   const target_width = parseFloat(getComputedStyle(targets[0], 'width'))
   const groups_width = parseFloat(getComputedStyle(groups, 'width'))
@@ -164,7 +163,7 @@ function main_anime () {
     } else {
       content_bg.className = animation_image[isRestart].split('_')[1] || ''
       anime_window.className = 'animation-box ' + animation_image[isRestart]
-      animation_image[isRestart] !== 'animation-normal' && audio[animation_image[isRestart]].play()
+      animation_image[isRestart] !== 'animation-normal' && audioPlay(audio[animation_image[isRestart]])
     }
     animation = animationFrame(guideAnimation)
   }
@@ -285,6 +284,29 @@ function getComputedStyle(ele, style) {
     return ele.currentStyle[style]
   } else {
     return window.getComputedStyle(ele)[style]
+  }
+}
+
+/**
+ * play audio in Wwchat
+ */
+function audioPlay(el){
+  const bgm = document.getElementById(el);
+  // const play = function(){
+  //   document.removeEventListener("WeixinJSBridgeReady", play);
+  //   bgm.play();
+  // };
+  // bgm.play();
+  // document.addEventListener("WeixinJSBridgeReady", play, false);
+  // bgm.addEventListener('timeupdate', function showTime(){
+  //   console.log(bgm.duration,'  ', bgm.currentTime);
+  // }, false);
+  if (typeof WeixinJSBridge == "object" && typeof WeixinJSBridge.invoke == "function") {
+    WeixinJSBridge.invoke('getNetworkType', {}, function (res) {
+      bgm.play();
+    });
+  } else {
+    bgm.play();
   }
 }
 
