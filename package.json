@@ -11,7 +11,8 @@
     "demo1:build": "node demo1/build.js",
     "demo12": "node demo1/app.gg2.js",
     "demo2": "node demo2/app.js",
-    "demo2:build": "node demo2/build.js"
+    "demo2:build": "node demo2/build.js",
+    "demo3": "node demo3/app.js"
   },
   "author": "JanathonJiang <qinghuangniao@gmail.com>",
   "license": "ISC",
