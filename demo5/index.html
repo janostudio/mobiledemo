@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>星空图</title>
+    <style>
+      html, body {
+        width: 100%;
+        height: 100%;
+        padding: 0px;
+        margin: 0px;
+      }
+      canvas {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="gallery"></canvas>
+    <script>
+      // #010717 #223E80 #090D1F 
+      var canvas = document.querySelector('#gallery');
+      var ctx = canvas.getContext('2d');
+      var nodes = [];
+      var w, h;
+
+      function render () {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+        // 背景色渲染
+        var gradient = ctx.createLinearGradient(w/2, 0, w/2, h);
+        gradient.addColorStop(0, '#010717');
+        gradient.addColorStop(0.25, '#203975');
+        gradient.addColorStop(0.5, '#223E80');
+        gradient.addColorStop(0.75, '#223A75');
+        gradient.addColorStop(1, '#090D1F');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0,0,w,h);
+        // 绘制节点
+        constructNodes();
+        nodes.forEach(function (e) {
+          ctx.fillStyle = 'rgba(255,255,255,0.3)';
+          ctx.beginPath();
+          ctx.arc(e.x, e.y, e.radius, 0, 2 * Math.PI);
+          ctx.fill();
+        });
+      }
+      
+      function constructNodes() {
+        for (var i = 0; i < 200; i++) {
+          var node = {
+            drivenByMouse: i == 0,
+            x: Math.random() * w,
+            y: Math.random() * h,
+            vx: Math.random() * 1 - 0.5,
+            vy: Math.random() * 1 - 0.5,
+            radius: Math.random() > 0.9 ? Math.random() * 4 : Math.random() * 2
+          };
+          nodes.push(node);
+        }
+      }
+
+      render();
+      
+
+    </script>
+  </body>
+</html>
